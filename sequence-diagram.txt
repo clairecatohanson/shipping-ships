@@ -1,0 +1,24 @@
+title Shipping Ships
+
+participant index.html
+participant main
+participant CargoShips
+participant ShipHaulers
+participant Docks
+participant database
+
+note over main: initialize a string variable that will\nhave the following HTML strings\nappended onto it
+main->CargoShips: request HTML string to\ndisplay list of CargoShips
+CargoShips->database: request CargoShips data
+CargoShips<--database: return CargoShips list
+main<--CargoShips: return HTML string
+main->ShipHaulers: request HTML string to\ndisplay list of ShipHaulers
+ShipHaulers->database: request ShipHaulers data
+ShipHaulers<--database: return ShipHaulers list
+main<--ShipHaulers: return HTML string
+main->Docks: request HTML string to\ndisplay list of Docks
+Docks->database: request Docks data
+Docks<--database: return Docks list
+main<--Docks: return HTML string
+note over main: initialize a variable that points\nto the desired element in index.html
+main->index.html: update the DOM by setting the innerHTML\nof the isolated element to the HTML string\nthat was built out in the steps above
